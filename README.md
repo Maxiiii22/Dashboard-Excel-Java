@@ -2,8 +2,8 @@
 
 Este proyecto es una aplicación de escritorio para la gestión de personas basada en una hoja de cálculo de Excel, desarrollada en Java utilizando Swing para la interfaz gráfica y Apache POI para el manejo de archivos Excel (.xlsx). Permite realizar operaciones básicas de ABM (Alta, Baja, Modificación) directamente sobre un archivo Excel como si fuera una base de datos.
 
-![Vista previa de la aplicación](Vista-previa-1.jpg)
-![Vista previa de la aplicación](Vista-previa-2.jpg)
+![Vista previa de la aplicación](images/Vista-previa-1.jpg)
+![Vista previa de la aplicación](images/Vista-previa-2.jpg)
 
 ---
 
