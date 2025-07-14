@@ -542,9 +542,6 @@ private void reorganizarFilas() {
         jPanel2 = new javax.swing.JPanel();
         lblPrincipal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        lblDonaciones = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lblEmpleados = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -648,52 +645,6 @@ private void reorganizarFilas() {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 300, 70));
 
-        jPanel3.setBackground(java.awt.Color.darkGray);
-        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jPanel3MouseMoved(evt);
-            }
-        });
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel3MouseExited(evt);
-            }
-        });
-
-        lblDonaciones.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDonaciones.setForeground(new java.awt.Color(255, 255, 255));
-        lblDonaciones.setText("Donaciones");
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/donacion.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(lblDonaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(lblDonaciones)
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
-
         jPanel5.setBackground(java.awt.Color.darkGray);
         jPanel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -735,7 +686,7 @@ private void reorganizarFilas() {
             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
 
         btnSalir.setBackground(java.awt.Color.darkGray);
         btnSalir.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
@@ -1067,11 +1018,6 @@ private void reorganizarFilas() {
      lblPrincipal.setForeground(Color.black);
     }//GEN-LAST:event_jPanel2MouseMoved
 
-    private void jPanel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseMoved
-        jPanel3.setBackground(Color.white);
-        lblDonaciones.setForeground(Color.black);
-    }//GEN-LAST:event_jPanel3MouseMoved
-
     private void jPanel5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseMoved
      jPanel5.setBackground(Color.white);
      lblEmpleados.setForeground(Color.black);
@@ -1081,19 +1027,9 @@ private void reorganizarFilas() {
      jPanel2.setBackground(Color.darkGray);
         lblPrincipal.setForeground(Color.white);    }//GEN-LAST:event_jPanel2MouseExited
 
-    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
-     jPanel3.setBackground(Color.darkGray);
-     lblDonaciones.setForeground(Color.white);
-    }//GEN-LAST:event_jPanel3MouseExited
-
     private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
         jPanel5.setBackground(Color.darkGray);
         lblEmpleados.setForeground(Color.white);    }//GEN-LAST:event_jPanel5MouseExited
-
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-     jTabbedPane2.setSelectedIndex(1);
-
-    }//GEN-LAST:event_jPanel3MouseClicked
 
     private void txtNombrejTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombrejTextField5ActionPerformed
         // TODO add your handling code here:
@@ -1249,7 +1185,6 @@ private void reorganizarFilas() {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1260,7 +1195,6 @@ private void reorganizarFilas() {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1274,7 +1208,6 @@ private void reorganizarFilas() {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JLabel lblDonaciones;
     private javax.swing.JLabel lblEmpleados;
     private javax.swing.JLabel lblPrincipal;
     private javax.swing.JToggleButton tblBuscar;
