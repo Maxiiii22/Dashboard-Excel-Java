@@ -49,8 +49,6 @@ public class Intefaz_Principal extends javax.swing.JFrame {
     private int filaActual;
     File file = new File("Base_De_Datos_Excel.xlsx");
 
-    
-    
     public Intefaz_Principal() {
         initComponents();
         
@@ -65,100 +63,8 @@ public class Intefaz_Principal extends javax.swing.JFrame {
      txtApellido.setText("");
      txtId.setText("");
      txtCorreo.setText("");
-    }
+    }    
     
-    
-    /*  Guia:  (No forma parte del crud ,son solo ejemplos)
-    
-     //1)Crear un libro
-        XSSFWorkbook libro = new XSSFWorkbook(); //XSSF para versiones de excel(.xslx) del 2007 para arriba y HSSF para excel(.xsl) 2003 para abajo
-        
-        //2)Crear hoja
-        XSSFSheet hoja = libro.createSheet("Empleados");
-        
-        
-        //3)Crear filas
-        XSSFRow cabecera = hoja.createRow(0); //Fila 0
-        
-        //4)Crear columnas
-        XSSFCell nombre = cabecera.createCell(1);
-        XSSFCell apellido = cabecera.createCell(2);
-        XSSFCell id = cabecera.createCell(3);
-        XSSFCell correo = cabecera.createCell(4);
-        XSSFCellStyle estiloCabecera = libro.createCellStyle();
-        
-        
-        //Rangos: Crear celdas grandes
-        CellRangeAddress rango = new CellRangeAddress(1,3,2,4);  //El 1° y 2° parametro es desde y hasta que fila , y el 3° y 4° parametro desde donde y hasta que columna.
-        hoja.addMergedRegion(rango);  // y luego lo agregamos a la hoja.  */
-        
-        /*//Formato de celdas:
-         XSSFRow fila = hoja.createRow(7); //Fila 7
-         XSSFCell celda = fila.createCell(7);
-         XSSFCellStyle estiloCelda = libro.createCellStyle();
-         // En configuracion de estilos pongo esto:
-         estiloCelda.setDataFormat(libro.createDataFormat().getFormat("dd/MM/yyyy"));  //Para que solo se puedan ingresar datos en formato "fecha". ( si pongo 0 es formato numero,h:mm:ss horas)
-         // Y luego en configuracion de celda pongo esto:
-         
-         celda.setCellValue(LocalDate.now()); //Le paso como valor la fecha de hoy.
-         celda.setCellStyle(estiloCelda);  //Lo agrego el formato.  
-         
-         
-
-        
-        
-        //Estilos para las letras:
-        XSSFFont fuente = libro.createFont();  // Creo objeto fuente
-        fuente.setFontName("Franklin Gothic Book");  // y le setteo la fuente esa
-        fuente.setBold(true);  //Esto es para resaltar con negrita.
-        fuente.setFontHeightInPoints((short) 14);  //Para el tamaño de la letra . Recibe un tipo de dato short, por eso hago un casting.
-        //fuente.setColor(IndexedColors.RED.getIndex());    //Para el color de las letras.
-        //fuente.setUnderline(FontUnderline.SINGLE);  // Para subrayar.
-        
-        // Configuracion de estilos :
-        estiloCabecera.setFillForegroundColor(IndexedColors.SKY_BLUE.getIndex());  //Fondo celeste
-        estiloCabecera.setFillPattern(FillPatternType.SOLID_FOREGROUND);   // y que sea solido para que se vea bien.
-        estiloCabecera.setBorderBottom(BorderStyle.THIN);
-        estiloCabecera.setBorderLeft(BorderStyle.THIN);
-        estiloCabecera.setBorderRight(BorderStyle.THIN);
-        estiloCabecera.setBorderTop(BorderStyle.THIN);
-        estiloCabecera.setFont(fuente);  //Le paso los estilos de fuente ya definidos.
-        estiloCabecera.setAlignment(HorizontalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro HORIZONTALMENTE.
-        estiloCabecera.setVerticalAlignment(VerticalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro VERTICALMENTE.
-        
-        
-        //Configuracion de celda:
-        nombre.setCellValue("Nombre");
-        apellido.setCellValue("Apellido");
-        id.setCellValue("Identificador");
-        correo.setCellValue("Correo");
-        
-        nombre.setCellStyle(estiloCabecera);  //Le agrego los estilos definidos a las columnas
-        apellido.setCellStyle(estiloCabecera);
-        id.setCellStyle(estiloCabecera);
-        correo.setCellStyle(estiloCabecera);
-        
-        
-        //Configuracion en hoja:
-        hoja.autoSizeColumn(1);  //Para que la columna se ajuste al contenido.
-        hoja.autoSizeColumn(2);
-        hoja.autoSizeColumn(3);
-        hoja.autoSizeColumn(4);
-        
-        
-        
-        try{
-            OutputStream output = new FileOutputStream("Base_De_Datos_Excel.xlsx");
-            libro.write(output);
-            output.close();
-        } catch (Exception e ) {
-            e.printStackTrace();
-        }
-        
-    */
-    
-    
-    // Método para cargar el libro al iniciar el programa
     private void cargarLibro() {
         try {
             if (file.exists()) {
@@ -166,8 +72,6 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                 libro = new XSSFWorkbook(archivo);
                 hoja = libro.getSheet("Empleados"); //Nos referimos a la hoja "Empleados"
                 
-                
-
                 // Encontrar la última fila ocupada
                 filaActual = hoja.getLastRowNum() + 1; // Suma 1 para comenzar desde la siguiente fila
                 archivo.close();
@@ -191,20 +95,20 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                 
                 //Estilos para las letras de la cabecera:
                 XSSFFont fuente = libro.createFont();  // Creo objeto fuente
-                fuente.setFontName("Franklin Gothic Book");  // y le setteo la fuente esa
-                fuente.setBold(true);  //Esto es para resaltar con negrita.
-                fuente.setFontHeightInPoints((short) 14);  //Para el tamaño de la letra . Recibe un tipo de dato short, por eso hago un casting.                  
+                fuente.setFontName("Franklin Gothic Book");  
+                fuente.setBold(true);  
+                fuente.setFontHeightInPoints((short) 14);                   
                   
                 // Configuracion de estilos para la cabecera :
-                estiloCabecera.setFillForegroundColor(IndexedColors.SKY_BLUE.getIndex());  //Fondo celeste
-                estiloCabecera.setFillPattern(FillPatternType.SOLID_FOREGROUND);   // y que sea solido para que se vea bien.
+                estiloCabecera.setFillForegroundColor(IndexedColors.SKY_BLUE.getIndex());  
+                estiloCabecera.setFillPattern(FillPatternType.SOLID_FOREGROUND);   
                 estiloCabecera.setBorderBottom(BorderStyle.THIN);
                 estiloCabecera.setBorderLeft(BorderStyle.THIN);
                 estiloCabecera.setBorderRight(BorderStyle.THIN);
                 estiloCabecera.setBorderTop(BorderStyle.THIN);
-                estiloCabecera.setFont(fuente);  //Le paso los estilos de fuente ya definidos.
-                estiloCabecera.setAlignment(HorizontalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro HORIZONTALMENTE.
-                estiloCabecera.setVerticalAlignment(VerticalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro VERTICALMENTE.   
+                estiloCabecera.setFont(fuente); 
+                estiloCabecera.setAlignment(HorizontalAlignment.CENTER);  
+                estiloCabecera.setVerticalAlignment(VerticalAlignment.CENTER);  
                 
                 //Configuracion de celda:
                 nombre.setCellValue("Nombre");
@@ -235,10 +139,9 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                 if (file.exists()) {
                 FileInputStream archivo = new FileInputStream(file);
                 libro = new XSSFWorkbook(archivo);
-                hoja = libro.getSheet("Empleados"); //Nos referimos a la hoja "Empleados"
+                hoja = libro.getSheet("Empleados");
 
-                // Encontrar la última fila ocupada
-                filaActual = hoja.getLastRowNum() + 1; // Suma 1 para comenzar desde la siguiente fila
+                filaActual = hoja.getLastRowNum() + 1; 
                 archivo.close();
                 }
 
@@ -295,10 +198,10 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                             estiloFilaEmpleados.setBorderLeft(BorderStyle.THIN);
                             estiloFilaEmpleados.setBorderRight(BorderStyle.THIN);
                             estiloFilaEmpleados.setBorderTop(BorderStyle.THIN);   
-                            estiloFilaEmpleados.setAlignment(HorizontalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro HORIZONTALMENTE.
-                            estiloFilaEmpleados.setVerticalAlignment(VerticalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro VERTICALMENTE.             
+                            estiloFilaEmpleados.setAlignment(HorizontalAlignment.CENTER);  
+                            estiloFilaEmpleados.setVerticalAlignment(VerticalAlignment.CENTER);            
                             formatoColumnaId.setDataFormat((short) 1);
-                            formatoColumnaId.setAlignment(HorizontalAlignment.CENTER);  //Para que al agrandar la celda el texto siempre se mantenga en el centro HORIZONTALMENTE.
+                            formatoColumnaId.setAlignment(HorizontalAlignment.CENTER); 
                             formatoColumnaId.setVerticalAlignment(VerticalAlignment.CENTER);
                             formatoColumnaId.setBorderBottom(BorderStyle.THIN);
                             formatoColumnaId.setBorderLeft(BorderStyle.THIN);
@@ -310,7 +213,7 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                             XSSFCell filaId = filaEmpleado.createCell(3);
                             XSSFCell filaCorreo = filaEmpleado.createCell(4);
 
-                            //Le agrego los los valores del txt a las columnas:
+                            //Le agrego los valores del txt a las columnas:
                             filaNombre.setCellValue(txtNombre.getText());
                             filaApellido.setCellValue(txtApellido.getText());
                             filaId.setCellValue(Integer.parseInt(txtId.getText()));
@@ -350,7 +253,7 @@ public class Intefaz_Principal extends javax.swing.JFrame {
     }
     
   private void editarEmpleado() {
-    if (txtId.getText().isEmpty()) {  // Si el txtId no tiene un valor
+    if (txtId.getText().isEmpty()) {  
         JOptionPane.showMessageDialog(rootPane, "Digite el ID para poder editar al Empleado");
         tblBuscar.setSelected(false);
         tblBuscar.setFocusable(false);
@@ -379,7 +282,7 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                 libro.write(cerrarArchivo);
                 
                 //Configuracion en hoja:
-                hoja.autoSizeColumn(1);  //Para que la columna se ajuste al contenido.
+                hoja.autoSizeColumn(1); 
                 hoja.autoSizeColumn(2);
                 hoja.autoSizeColumn(3);
                 hoja.autoSizeColumn(4); 
@@ -392,7 +295,7 @@ public class Intefaz_Principal extends javax.swing.JFrame {
                 btnEliminar.setEnabled(false);
                 btnGuardar.setEnabled(true);
                 JOptionPane.showMessageDialog(rootPane, "Empleado editado exitosamente.");
-                return; // Salir del método después de editar el empleado
+                return; 
             }
         }
 
@@ -461,7 +364,7 @@ private void buscarEmpleado(){
 private void eliminarEmpleado() {
     String botones[] = {"ELIMINAR", "CANCELAR"};
 
-    if (txtId.getText().isEmpty()) {  //Si el txt no tiene ningun valor
+    if (txtId.getText().isEmpty()) {  
         JOptionPane.showMessageDialog(rootPane, "Digite el ID para poder Eliminar al Empleado");
         tblBuscar.setSelected(false);
         tblBuscar.setFocusable(false);
@@ -482,9 +385,9 @@ private void eliminarEmpleado() {
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     hoja.removeRow(fila); // Eliminar fila
                     empleadoEncontrado = true;
-                    break;  //Salis del for
+                    break; 
                 } else {
-                    return;    // Si se cancela la eliminación, salir del método
+                    return;    
                 }
             }
         }
@@ -522,9 +425,6 @@ private void reorganizarFilas() {
         }
     }
 }
-
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
